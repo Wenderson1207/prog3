@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Denunciar Bullying</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="lorran.php">
+    
+     <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 20px;
+            text-align: center;
+            color: #333;
+        }
+        .message-box {
+            background: #dff0d8;
+            border: 1px solid #3c763d;
+            color: #3c763d;
+            padding: 20px;
+            max-width: 400px;
+            margin: 40px auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(60, 118, 61, 0.2);
+            }
+        a.button {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #337ab7;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s ease;
+        }
+        a.button:hover {
+            background: #286090;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Denunciar Bullying</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="formulario">
+            <h2>Preencha o Formulário de Denúncia</h2>
+            <form action="processa_denuncia.php" method="POST">
+                <label for="nome">Seu Nome (Opcional):</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite seu nome (opcional)" />
+
+                <label for="email">Seu E-mail :</label>
+                <input type="email" id="email" name="email" placeholder="Digite seu e-mail " />
+
+                <label for="descricao">Descrição do Caso de Bullying:</label>
+                <textarea id="descricao" name="descricao" placeholder="Descreva o caso de bullying..." required></textarea>
+
+                <button  type="submit">Enviar Denúncia</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 | Combate ao Bullying</p>
+    </footer>
+</body>
+</html>

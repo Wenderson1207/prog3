@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Contra o Bullying</title>
+    <link rel="stylesheet" href="style2.css">
+    <link rel="stylesheet" href="lorran.php">
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        // Função para carregar as mensagens a cada 3 segundos
+        function carregarMensagens() {
+            $.get("processa_chat.php", { action: "carregar" }, function(data) {
+                $('#chat').html(data);  // Atualiza a área do chat com as novas mensagens
+            });
+        }
+
+        // Envio de mensagens
+        $(document).ready(function() {
+            $("#formChat").submit(function(event) {
+                event.preventDefault();  // Previne o envio padrão do formulário
+
+                var nome = $("#nomeChat").val();  // Nome do usuário
+                var mensagem = $("#mensagem").val();  // Mensagem a ser enviada
+
+                if (mensagem.trim() !== "") {
+                    $.post("processa_chat.php", { nome: nome, mensagem: mensagem, action: "enviar" }, function() {
+                        $("#mensagem").val('');  // Limpa o campo de mensagem após o envio
+                        carregarMensagens();  // Atualiza a conversa com a nova mensagem
+                    });
+                }
+            });
+
+            
+            carregarMensagens();
+            setInterval(carregarMensagens, 3000);  
+        });
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Chat de Conversa</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                
+               
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="chat">
+            <div id="chat" class="mensagens">
+                
+            </div>
+
+            <form id="formChat">
+                <input type="text" id="nomeChat" name="nome" placeholder="Digite seu nome (opcional)" required />
+                <textarea id="mensagem" name="mensagem" placeholder="Escreva uma mensagem..." required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        
+        <p>&copy; 2025 | Combate ao Bullying</p>
+    </footer>
+</body>
+</html>
