@@ -42,7 +42,8 @@ $quarto2 = new Deluxe(202);
 $quarto3 = new Suite(303);  
 
 
-echo "Quarto Standard nº". $quarto1->getNumero().": R$ " . $quarto1->getPreco() . "<br>";
-echo "Quarto Deluxe nº". $quarto2->getNumero().": R$ " . $quarto2->getPreco(2) . "<br>";
-echo "Quarto Suite nº". $quarto3->getNumero().": R$ " . $quarto3->getPreco(1) . "<br>";
+echo "Quarto Standard: nº". $quarto1->getNumero().": R$ " . $quarto1->getPreco() . "<br>";
+echo "Quarto Deluxe: nº". $quarto2->getNumero().": R$ " . $quarto2->getPreco(2) . "<br>";
+echo "Quarto Suite: nº". $quarto3->getNumero().": R$ " . $quarto3->getPreco(1) . "<br>";
 ?>
+
